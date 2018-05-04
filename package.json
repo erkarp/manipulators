@@ -1,0 +1,11 @@
+{
+  "name": "stringtoys",
+  "version": "1.0.0",
+  "description": "Playing with strings",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "erkarp",
+  "license": "ISC"
+}
