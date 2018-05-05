@@ -11,7 +11,7 @@ const makeString = (s, fn) => {
   return fn(s)
 }
 
-export function capitalize (s) {
+export function words (s) {
   return makeString(s, s => {
     return s.toLowerCase().split(' ').reduce((sentence, word) => {
       let wordArray = word.split(/\b(\w)/)
@@ -26,7 +26,7 @@ export function capitalize (s) {
   })
 }
 
-export function capitalizeEvery (n, s) {
+export function every (n, s) {
   if (typeof n === 'number') {
     return makeString(s, s => {
       return s.split('').map((char, i) => {
@@ -40,11 +40,11 @@ export function capitalizeEvery (n, s) {
   }
 }
 
-export function capitalizeAlternately (s) {
-  return capitalizeEvery(2, s)
+export function alternately (s) {
+  return every(2, s)
 }
 
-export function capitalizeRandomly (s) {
+export function randomly (s) {
   return makeString(s, s => {
     return s.split('').map(char => {
       return getRandomInt(2) ? char.toUpperCase() : char.toLowerCase()
