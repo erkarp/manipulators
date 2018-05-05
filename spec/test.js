@@ -1,14 +1,19 @@
-import capitalizeRandomly from '../index'
+import * as toys from '../index'
 
 describe('String', function () {
   let string
 
   beforeEach(function () {
-    string = 'The quick fox jumped over the lazy dog.'
+    string = 'The quick brown fox jumped over the lazy dog.'
+  })
+
+  it('should capitalize the first letter of each word', function () {
+    let s = toys.capitalize(string)
+    expect(s).toEqual('The Quick Brown Fox Jumped Over The Lazy Dog.')
   })
 
   it("shouldn't change the string's length", function () {
-    let toyedString = capitalizeRandomly(string)
-    expect(toyedString.length).toEqual(string.length)
+    let s = toys.capitalizeRandomly(string)
+    expect(s.length).toEqual(string.length)
   })
 })

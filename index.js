@@ -11,7 +11,22 @@ const makeString = (s, fn) => {
   return fn(s)
 }
 
-function capitalizeRandomly (s) {
+export function capitalize (s) {
+  return makeString(s, s => {
+    return s.toLowerCase().split(' ').reduce((sentence, word) => {
+      let wordArray = word.split(/\b(\w)/)
+
+      if (wordArray.length) {
+        wordArray[1] = wordArray[1].toUpperCase()
+        word = wordArray.join('')
+      }
+
+      return sentence ? `${sentence} ${word}` : word
+    }, '')
+  })
+}
+
+export function capitalizeRandomly (s) {
   return makeString(s, s => {
     return s.split('').map(char => {
       return getRandomInt(2) ? char.toUpperCase() : char.toLowerCase()
@@ -23,5 +38,3 @@ function capitalizeRandomly (s) {
 function getRandomInt (max) {
   return Math.floor(Math.random() * Math.floor(max))
 }
-
-export default capitalizeRandomly
