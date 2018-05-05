@@ -11,13 +11,11 @@ const makeString = (s, fn) => {
   return fn(s)
 }
 
-export default function capitalizeRandomly (s) {
+function capitalizeRandomly (s) {
   return makeString(s, s => {
-    if (typeof s === 'string') {
-      return s.split('').map(char => {
-        return getRandomInt(2) ? char.toUpperCase() : char.toLowerCase()
-      }).join('')
-    }
+    return s.split('').map(char => {
+      return getRandomInt(2) ? char.toUpperCase() : char.toLowerCase()
+    }).join('')
   })
 }
 
@@ -25,3 +23,5 @@ export default function capitalizeRandomly (s) {
 function getRandomInt (max) {
   return Math.floor(Math.random() * Math.floor(max))
 }
+
+export default capitalizeRandomly
