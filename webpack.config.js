@@ -1,11 +1,15 @@
 var path = require('path');
 var webpack = require('webpack');
+
 module.exports = {
-    entry: './index.js',
+	entry: {
+		"main": "./index.js",
+		"test": "./spec/test.js"
+	},
     mode: 'development',
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'app.bundle.js'
+        filename: '[name].js'
     },
     module: {
         rules: [

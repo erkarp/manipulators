@@ -8,20 +8,20 @@ const makeString = (s, fn) => {
     }
   }
 
-  fn(s)
+  return fn(s)
 }
 
-const capitalizeRandomly = s => makeString(s, s => {
-  if (typeof s === 'string') {
-    return s.split('').map(char => {
-      return getRandomInt(2) ? char.toUpperCase() : char.toLowerCase()
-    }).join('')
-  }
-})
+export default function capitalizeRandomly (s) {
+  return makeString(s, s => {
+    if (typeof s === 'string') {
+      return s.split('').map(char => {
+        return getRandomInt(2) ? char.toUpperCase() : char.toLowerCase()
+      }).join('')
+    }
+  })
+}
 
 // From MDN
 function getRandomInt (max) {
   return Math.floor(Math.random() * Math.floor(max))
 }
-
-capitalizeRandomly('hello')

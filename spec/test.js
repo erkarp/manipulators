@@ -1,12 +1,14 @@
-describe('String', function() {
-    const capitalizeRandomly = require('../index');
+import capitalizeRandomly from '../index'
 
-    beforeEach(function() {
-        var string = "The quick fox jumped over the lazy dog.";
-    });
+describe('String', function () {
+  let string
 
-    it("shouldn't change the string's length", function() {
-        let toyedString = capitalizeRandomly(string);
-        expect(toyedString.length).toEqual(string.length);
-    });
+  beforeEach(function () {
+    string = 'The quick fox jumped over the lazy dog.'
+  })
+
+  it("shouldn't change the string's length", function () {
+    let toyedString = capitalizeRandomly(string)
+    expect(toyedString.length).toEqual(string.length)
+  })
 })
