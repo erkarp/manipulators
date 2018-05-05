@@ -26,6 +26,24 @@ export function capitalize (s) {
   })
 }
 
+export function capitalizeEvery (n, s) {
+  if (typeof n === 'number') {
+    return makeString(s, s => {
+      return s.split('').map((char, i) => {
+        return i % n ? char.toLowerCase() : char.toUpperCase()
+      }).join('')
+    })
+  } else {
+    return makeString(n, n => {
+      return n.toUpperCase()
+    })
+  }
+}
+
+export function capitalizeAlternately (s) {
+  return capitalizeEvery(2, s)
+}
+
 export function capitalizeRandomly (s) {
   return makeString(s, s => {
     return s.split('').map(char => {
