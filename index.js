@@ -44,6 +44,16 @@ export function alternately (s) {
   return every(2, s)
 }
 
+export function vowels (s) {
+  const vowels = ['a', 'e', 'i', 'o', 'u']
+
+  return makeString(s, s => {
+    return s.toLowerCase().split('').map(char => {
+      return vowels.includes(char) ? char.toUpperCase() : char
+    }).join('')
+  })
+}
+
 export function randomly (s) {
   return makeString(s, s => {
     return s.split('').map(char => {

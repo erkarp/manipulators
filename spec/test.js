@@ -31,4 +31,9 @@ describe('String', function () {
     let s = capitalize.every(4, string)
     expect(s).toEqual('The QuicK brOwn Fox JumpEd oVer The Lazy dog.')
   })
+
+  it('should capitalize all the vowels besides "y"', function () {
+    let s = capitalize.vowels(string)
+    expect(s).toEqual('thE qUIck brOwn fOx jUmpEd OvEr thE lAzy dOg.')
+  })
 })
