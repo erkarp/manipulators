@@ -26,12 +26,18 @@ export function words (s) {
   })
 }
 
+const manipulateCharacters = (s, characterFunction) => {
+  return makeString(s, s => {
+    return s.split('').map((char, i) => {
+      return characterFunction(char, i)
+    }).join('')
+  })
+}
+
 export function every (n, s) {
   if (typeof n === 'number') {
-    return makeString(s, s => {
-      return s.split('').map((char, i) => {
-        return i % n ? char.toLowerCase() : char.toUpperCase()
-      }).join('')
+    return manipulateCharacters(s, (char, i) => {
+      return i % n ? char.toLowerCase() : char.toUpperCase()
     })
   } else {
     return makeString(n, n => {
@@ -47,10 +53,8 @@ export function alternately (s) {
 export function vowels (s) {
   const vowels = ['a', 'e', 'i', 'o', 'u']
 
-  return makeString(s, s => {
-    return s.toLowerCase().split('').map(char => {
-      return vowels.includes(char) ? char.toUpperCase() : char
-    }).join('')
+  return manipulateCharacters(s.toLowerCase(), char => {
+    return vowels.includes(char) ? char.toUpperCase() : char
   })
 }
 
