@@ -1,6 +1,31 @@
 import * as capitalize from '../index'
+import makeString from '../helpers'
 
-describe('String', function () {
+describe('makeString', function () {
+  const test = s => { return s.toUpperCase() }
+
+  it('should turn an empty array into a string', function () {
+    expect(makeString([], test)).toEqual('')
+  })
+
+  it('should turn a populated array into a string', function () {
+    expect(makeString(['hello', 0, 11], test)).toEqual('HELLO,0,11')
+  })
+
+  it('should turn a boolean into a string', function () {
+    expect(makeString(false, test)).toEqual('FALSE')
+  })
+
+  it('should turn a positive number into a string', function () {
+    expect(makeString(5000, test)).toEqual('5000')
+  })
+
+  it('should turn an object into a string', function () {
+    expect(makeString({}, test)).toEqual('[OBJECT OBJECT]')
+  })
+})
+
+describe('Toys', function () {
   let string
 
   beforeEach(function () {
