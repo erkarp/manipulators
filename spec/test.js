@@ -1,4 +1,5 @@
 import * as capitalize from '../index'
+import * as manipulate from '../helpers/manipulate'
 import makeString from '../helpers'
 
 describe('makeString', function () {
@@ -25,12 +26,32 @@ describe('makeString', function () {
   })
 })
 
-describe('Toys', function () {
-  let string
+describe('manipulate', function () {
+  const string = 'The quick brown fox jumped over the lazy dog.'
 
-  beforeEach(function () {
-    string = 'The quick brown fox jumped over the lazy dog.'
+  it('every character into "1"', function () {
+    expect(manipulate.characters(string, char => {
+      return 1
+    })).toEqual('111111111111111111111111111111111111111111111')
   })
+
+  it('every word into "1"', function () {
+    expect(manipulate.words(string, word => {
+      return 1
+    })).toEqual('1 1 1 1 1 1 1 1 1')
+  })
+
+  it('every nonspace character into "1"', function () {
+    expect(manipulate.words(string, word => {
+      return manipulate.characters(word, char => {
+        return 1
+      })
+    })).toEqual('111 11111 11111 111 111111 1111 111 1111 1111')
+  })
+})
+
+describe('Toys', function () {
+  const string = 'The quick brown fox jumped over the lazy dog.'
 
   it('should capitalize the first letter of each word', function () {
     let s = capitalize.words(string)
