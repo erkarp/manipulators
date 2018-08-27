@@ -1,7 +1,7 @@
-import makeString from './index'
-import * as manipulate from './manipulate'
+import makeString from './makeString'
+import manipulate from './manipulate'
 
-const words = (s) => {
+const words = s => {
   return manipulate.words(s, word => {
     let wordArray = word.split(/\b(\w)/)
     wordArray[1] = wordArray[1].toUpperCase()
@@ -15,17 +15,17 @@ const every = (n, s) => {
       return i % n ? char.toLowerCase() : char.toUpperCase()
     })
   } else {
-    return makeString(n, n => {
-      return n.toUpperCase()
+    return makeString(n, str => {
+      return str.toUpperCase()
     })
   }
 }
 
-const alternately = (s) => {
+const alternately = s => {
   return every(2, s)
 }
 
-const vowels = (s) => {
+const vowels = s => {
   const vowels = ['a', 'e', 'i', 'o', 'u']
 
   return manipulate.characters(s.toLowerCase(), char => {
@@ -33,16 +33,16 @@ const vowels = (s) => {
   })
 }
 
-const randomly = (s) => {
-  return makeString(s, s => {
-    return s.split('').map(char => {
+const randomly = s => {
+  return makeString(s, str => {
+    return str.split('').map(char => {
       return getRandomInt(2) ? char.toUpperCase() : char.toLowerCase()
     }).join('')
   })
 }
 
 // From MDN
-function getRandomInt (max) {
+const getRandomInt = max => {
   return Math.floor(Math.random() * Math.floor(max))
 }
 

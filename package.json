@@ -1,7 +1,7 @@
 {
   "name": "manipulators",
-  "version": "1.0.0",
-  "description": "Playing with strings",
+  "version": "1.0.1",
+  "description": "string manupulation for fun",
   "main": "index.js",
   "repository": {
     "type": "git",

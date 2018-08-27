@@ -1,4 +1,4 @@
-const makeString = (s, fn) => {
+export default (s, fn) => {
   if (typeof s !== 'string') {
     try {
       s = s.toString()
@@ -9,5 +9,3 @@ const makeString = (s, fn) => {
   }
   return fn(s)
 }
-
-export default makeString

@@ -1,6 +1,6 @@
 import makeString from './makeString'
 
-export function characters (s, characterFunction) {
+function characters (s, characterFunction) {
   return makeString(s, s => {
     return s.split('').map((char, i) => {
       return characterFunction(char, i)
@@ -8,7 +8,7 @@ export function characters (s, characterFunction) {
   })
 }
 
-export function words (s, wordFunction) {
+function words (s, wordFunction) {
   return makeString(s, s => {
     return s.split(' ').map((word) => {
       if (word.length) {
@@ -17,3 +17,5 @@ export function words (s, wordFunction) {
     }).join(' ')
   })
 }
+
+export default { characters, words }
