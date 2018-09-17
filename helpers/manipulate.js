@@ -1,4 +1,4 @@
-import makeString from '.'
+import makeString from './makeString'
 
 export function characters (s, characterFunction) {
   return makeString(s, s => {

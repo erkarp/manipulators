@@ -1,6 +1,6 @@
-import * as capitalize from '../index'
+import capitalize from '../helpers'
 import * as manipulate from '../helpers/manipulate'
-import makeString from '../helpers'
+import * as makeString from '../helpers/makeString'
 
 describe('makeString', function () {
   const test = s => { return s.toUpperCase() }
