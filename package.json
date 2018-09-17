@@ -1,11 +1,11 @@
 {
-  "name": "stringtoys",
+  "name": "manipulators",
   "version": "1.0.0",
   "description": "Playing with strings",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://kerarp@bitbucket.org/kerarp/stringtoys.git"
+    "url": "https://github.com/erkarp/manipulators.git"
   },
   "scripts": {
     "webpack": "webpack",
