@@ -1,15 +1,14 @@
 {
   "name": "manipulators",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "string manupulation for fun",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erkarp/manipulators.git"
+    "url": "httpsg://github.com/erkarp/manipulators.git"
   },
   "scripts": {
     "webpack": "webpack",
-    "start": "http-server",
     "test": "jasmine build/test.js"
   },
   "author": "erkarp",
